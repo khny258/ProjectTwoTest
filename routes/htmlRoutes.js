@@ -10,35 +10,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/homepage", (req, res) => {
-  // sequelize
-  const info = {
-    age: 20,
-    location: "somewhere",
-    console: "pc"
-  }
-  res.render("index", info);
+  res.render("login");
 });
 
 router.get("/login", (req, res) => {
   res.render("login");
 });
-
-
-
-
-router.get("/games", (req, res) => {
-  let games;
-  connection.sync().then(() => {
-    Games.findAll({
-      attributes: ['name', 'imageUrl', 'timetobeat', 'summary', 'rating']
-    }).then(data => {
-      let hbObj = {
-        games: data
-      }
-      res.render('games', hbObj)
-    })
-  })
-})
 
 router.get("*", function(req, res) {
   res.render("404");
