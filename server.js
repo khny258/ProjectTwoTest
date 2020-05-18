@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars config
-app.engine(".hbs", exphbs({ defaultLayout: "main", extname: ".hbs" }));
+app.engine(".hbs", exphbs({ defaultLayout: "login", extname: ".hbs" }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
